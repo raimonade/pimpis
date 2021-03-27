@@ -49,12 +49,12 @@ if "app.py" in sys.argv[0]:
 
 @app.route('/dahua')
 def getDahua():
-    # Dahua = requests.get(url, auth=HTTPDigestAuth('admin', 'Lupata1488*'))
+    Dahua = requests.get(url, auth=HTTPDigestAuth('admin', 'Lupata1488*'))
 
 
     # Turns all values to a list of lines
-    # DahuaValues = Dahua.text.splitlines()
-    DahuaValues = exampleData.splitlines()
+    DahuaValues = Dahua.text.splitlines()
+    # DahuaValues = exampleData.splitlines()
 
     # Total of people entered today:
     PeopleInString = DahuaValues[2]
