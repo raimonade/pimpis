@@ -89,7 +89,7 @@ app.whenReady().then(async () => {
   if (isDevMode) {
     (browserWindows.loadingWindow = new BrowserWindow({ frame: false })),
       createLoadingWindow().then(() => createMainWindow(port));
-    spawn(`python app.py ${port}`, {
+    spawn(`python3 app.py ${port}`, {
       detached: true,
       shell: true,
       stdio: 'inherit'
