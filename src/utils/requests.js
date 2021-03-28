@@ -16,13 +16,12 @@ const port = ipcRenderer.sendSync('get-port-number');
 * @return response data from Python/Flask service.
 * @memberof Requests
 */
-export const get = (route, callback, errorCallback) => {
-  fetch(`http://localhost:${port}/${route}`)
+export async function get(route, callback, errorCallback){
+  await fetch(`http://localhost:${port}/${route}`)
     .then((response) => response.json())
     .then((response) => callback(response))
     .catch((error) => errorCallback ? errorCallback(error) : console.error(error));
 };
-
 
 /**
 * @description - Helper POST method for sending requests to and from the Python/Flask services.

@@ -21,8 +21,11 @@ const UserScreen = ({ apiData }) => {
   }
 
   function onSuccess(res) {
-    setresp(res);
-    setallowed(res.PeopleIn < res.MaxPeople)
+    setresp(() => res);
+    console.log(res);
+    const all = res.MaxPeople - res.PeopleCount > 0; 
+    setallowed(all);
+    console.log(res.MaxPeople - res.PeopleCount);
     timeout = setTimeout(() => getCameraData(), 1000);
   }
 
@@ -32,12 +35,11 @@ const UserScreen = ({ apiData }) => {
   }
 
   return (
-    <div className={s.Screen} allowed={(allowed).toString()}>
+    <div className={s.Screen} allowed={allowed.toString()}>
       <div className={s.PeopleCount}>
         <People />
         <span>
-          {resp.PeopleIn} / {resp.MaxPeople}
-          <h1>{allowed}</h1>
+          {resp.PeopleCount > 0 ? resp.PeopleCount : 0} / {resp.MaxPeople}
         </span>
       </div>
       <div className={s.Body}>

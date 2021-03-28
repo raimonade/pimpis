@@ -69,7 +69,7 @@ def getDahua():
     # print(PeopleCount)
 
     # Number of people still allowed to enter
-    MaxPeople = 100
+    MaxPeople = 2
     AllowedToEnter = MaxPeople - PeopleCount
 
     # print('Allowed to Enter:', AllowedToEnter)
